@@ -15,7 +15,7 @@ class User(AbstractBaseUser):
     email = models.EmailField(
         verbose_name='email address',
         max_length=255,
-        unique=True,
+        unique=True
     )
     username = models.CharField(max_length=254, unique=True)
     first_name = models.CharField(verbose_name=_("First Name"), max_length=50)
@@ -27,8 +27,8 @@ class User(AbstractBaseUser):
 
     # notice the absence of a "Password field", that is built in.
 
-    USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = [] # Email & Password are required by default.
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ["username"] # Email & Password are required by default.
 
     objects = UserManager()
 
